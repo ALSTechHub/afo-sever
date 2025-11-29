@@ -287,6 +287,7 @@ export const createLoan = async (req, res) => {
             entityId: loan._id
           },
           priority: 'high',
+          channelId: 'default'
         })
       );
       
@@ -585,12 +586,13 @@ export const updateLoanStatus = async (req, res) => {
             message: `Your loan application #${loan.loanNumber} for ${loan.client.firstName} ${loan.client.lastName} has been approved and is ready for disbursement`,
             type: 'loan_approved',
             recipient: loan.createdBy._id,
-            sender: req.user._id, // Use req.user._id from auth middleware
+            sender: req.user._id, 
             relatedEntity: {
               entityType: 'loan',
               entityId: loan._id
             },
             priority: 'medium',
+            channelId: 'default'
           });
           console.log(`📨 Loan approval notification sent to employee ${loan.createdBy._id}`);
         } else {
@@ -1161,4 +1163,5 @@ export const getClientsActiveLoans = async (req, res) => {
       error: error.message
     });
   }
+
 };
