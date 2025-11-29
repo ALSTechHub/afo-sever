@@ -162,6 +162,7 @@ export const createPayment = async (req, res) => {
             entityId: payment._id
           },
           priority: 'medium',
+          channelId: 'default'
         })
       );
       
@@ -797,4 +798,5 @@ export const getPaymentsByLoan = async (req, res) => {
       error: error.message
     });
   }
+
 };
