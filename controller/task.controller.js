@@ -140,6 +140,7 @@ export const createTask = async (req, res) => {
           entityId: task._id
         },
         priority: priority || 'high',
+        channelId: 'default'
       });
       
       console.log(`📨 Task assignment notification sent to employee ${task.assignedTo}`);
@@ -912,4 +913,5 @@ export const getTasksByEmployees = async (req, res) => {
       message: 'Server error while fetching tasks'
     });
   }
+
 };
