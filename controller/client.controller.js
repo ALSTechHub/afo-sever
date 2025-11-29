@@ -92,6 +92,7 @@ export const createClient = async (req, res) => {
             entityId: client._id
           },
           priority: 'medium',
+          channelId: 'default'
         })
       );
       
@@ -1113,3 +1114,4 @@ export const searchClient = async (req, res) => {
     });
   }
 };
+
